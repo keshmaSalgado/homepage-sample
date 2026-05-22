@@ -44,17 +44,21 @@ async function load(id, file) {
     document.getElementById(id).innerHTML = data
     // attempt to re-resolve navbar/hero after this component has been inserted
     updateNavbarState()
-    // re-initialize hero slider after hero component is loaded
-    if (id === "hero") initHeroSlider()
+    initWipModal()
+    // re-initialize hero slider and modal after hero component is loaded
+    if (id === "hero") {
+        initHeroSlider()
+
+    }
 }
 
 function initHeroSlider() {
     const hero = document.getElementById("hero")?.querySelector("section");
     const nextBtn = document.getElementById("hero")?.querySelector("#nextBtn");
     const prevBtn = document.getElementById("hero")?.querySelector("#prevBtn");
-    
+
     if (!hero || !nextBtn || !prevBtn) return;
-    
+
     const slides = ["./images/slider.jpg", "./images/slider2.jpg"];
     let currentSlide = 0;
 
@@ -96,3 +100,46 @@ load("experts", "components/experts.html")
 load("blog", "components/blog.html")
 load("newsletter", "components/newsletter.html")
 load("footer", "components/footer.html")
+
+function initWipModal() {
+    const wipModal = document.getElementById("wipModal");
+    if (!wipModal) return;
+
+    const triggers = Array.from(document.querySelectorAll('.wip-trigger'));
+    if (triggers.length === 0 && wipModal.dataset.wipInitialized === '1') return;
+
+    function openModal() {
+        wipModal.classList.remove("hidden");
+        wipModal.classList.add("flex");
+    }
+
+    function hideModal() {
+        wipModal.classList.remove("flex");
+        wipModal.classList.add("hidden");
+    }
+
+    // attach to triggers (idempotent)
+    triggers.forEach(btn => {
+        if (btn.dataset.wipInit === '1') return;
+        btn.addEventListener('click', openModal);
+        btn.dataset.wipInit = '1';
+    });
+
+    // attach close handlers once
+    if (wipModal.dataset.wipInitialized !== '1') {
+        const closeModal = document.getElementById("closeModal");
+        const closeBtn = document.getElementById("closeBtn");
+
+        if (closeModal) closeModal.addEventListener("click", hideModal);
+        if (closeBtn) closeBtn.addEventListener("click", hideModal);
+
+        // close when clicking outside
+        wipModal.addEventListener("click", (e) => {
+            if (e.target === wipModal) {
+                hideModal();
+            }
+        });
+
+        wipModal.dataset.wipInitialized = '1';
+    }
+}

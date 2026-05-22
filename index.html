@@ -34,6 +34,40 @@
     <div id="blog"></div>
     <div id="newsletter"></div>
     <div id="footer"></div>
+    
+    <!-- WORK IN PROGRESS MODAL -->
+    <div
+      id="wipModal"
+      class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50"
+    >
+      <div
+        class="bg-white rounded-3xl p-10 max-w-md mx-4 text-center relative animate-[fadeIn_.3s_ease]"
+      >
+        <!-- close button -->
+        <button
+          id="closeModal"
+          class="absolute top-4 right-5 text-3xl text-gray-500 hover:text-black"
+        >
+          ×
+        </button>
+
+        <!-- icon -->
+        <div class="text-6xl mb-5">🚧</div>
+
+        <h2 class="text-3xl font-bold text-[#303030] mb-4">Work In Progress</h2>
+
+        <p class="text-gray-600 leading-7">
+          This section is currently under development. Please check back later.
+        </p>
+
+        <button
+          id="closeBtn"
+          class="mt-8 bg-[#ff5a4a] text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition"
+        >
+          Okay
+        </button>
+      </div>
+    </div>
 
     <script src="myscript.js"></script>
   </body>
