@@ -1,37 +1,47 @@
 <!-- HERO -->
 <section
   id="hero"
-  class="relative h-[640px] bg-cover bg-center duration-500"
-  style="background-image: url(&quot;./images/slider.jpg&quot;)"
+  class="relative h-[500px] md:h-[640px] bg-cover bg-center duration-500"
+  style="background-image: url('./images/slider.jpg')"
 >
+  <!-- overlay -->
+  <div class="absolute inset-0 bg-black/10"></div>
+
   <!-- left arrow -->
   <button
     id="prevBtn"
-    class="absolute left-8 top-1/2 -translate-y-1/2 text-5xl z-10"
+    class="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 text-4xl md:text-5xl z-10 text-black"
   >
     ‹
   </button>
 
   <!-- content -->
-  <div class="max-w-7xl mx-auto h-full px-24 flex items-center">
-    <div>
-      <div class="flex items-start gap-3 mb-10">
-        <div class="w-[2px] h-14 bg-black"></div>
+  <div
+    class="max-w-7xl mx-auto h-full px-6 md:px-12 lg:px-24 flex items-center relative z-10"
+  >
+    <div class="max-w-2xl">
+      
+      <div class="flex items-start gap-3 mb-6 md:mb-10">
+        <div class="w-[2px] h-12 md:h-14 bg-black"></div>
 
-        <p class="text-2xl">
+        <p class="text-lg md:text-2xl">
           20% Off For <br />
           New Members
         </p>
       </div>
 
-      <h1 class="text-[70px] leading-none font-medium text-[#303030]">
+      <h1
+        class="text-[38px] sm:text-[50px] md:text-[70px] leading-tight md:leading-none font-medium text-[#303030]"
+      >
         HAPPY MOTHER’S DAY!
       </h1>
 
-      <p class="text-3xl mt-6 text-gray-700">Bouquets your mom will love!</p>
+      <p class="text-lg md:text-3xl mt-4 md:mt-6 text-gray-700">
+        Bouquets your mom will love!
+      </p>
 
       <button
-        class="mt-12 bg-[#ff5a4a] text-white px-10 py-5 rounded-full font-bold hover:scale-105 transition"
+        class="mt-8 md:mt-12 bg-[#ff5a4a] text-white px-6 md:px-10 py-3 md:py-5 rounded-full font-bold hover:scale-105 transition"
       >
         START SHOPPING
       </button>
@@ -41,7 +51,7 @@
   <!-- right arrow -->
   <button
     id="nextBtn"
-    class="absolute right-8 top-1/2 -translate-y-1/2 text-5xl z-10"
+    class="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 text-4xl md:text-5xl z-10 text-black"
   >
     ›
   </button>
