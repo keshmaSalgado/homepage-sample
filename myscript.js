@@ -44,6 +44,46 @@ async function load(id, file) {
     document.getElementById(id).innerHTML = data
     // attempt to re-resolve navbar/hero after this component has been inserted
     updateNavbarState()
+    // re-initialize hero slider after hero component is loaded
+    if (id === "hero") initHeroSlider()
+}
+
+function initHeroSlider() {
+    const hero = document.getElementById("hero")?.querySelector("section");
+    const nextBtn = document.getElementById("hero")?.querySelector("#nextBtn");
+    const prevBtn = document.getElementById("hero")?.querySelector("#prevBtn");
+    
+    if (!hero || !nextBtn || !prevBtn) return;
+    
+    const slides = ["./images/slider.jpg", "./images/slider2.jpg"];
+    let currentSlide = 0;
+
+    // Add fade transition
+    hero.style.transition = "opacity 0.5s ease-in-out";
+
+    function updateSlider() {
+        hero.style.opacity = "0";
+        setTimeout(() => {
+            hero.style.backgroundImage = `url('${slides[currentSlide]}')`;
+            hero.style.opacity = "1";
+        }, 250);
+    }
+
+    nextBtn.addEventListener("click", () => {
+        currentSlide++;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+        updateSlider();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        currentSlide--;
+        if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+        updateSlider();
+    });
 }
 load("navbar-container", "components/navbar.html")
 load("hero", "components/hero.html")

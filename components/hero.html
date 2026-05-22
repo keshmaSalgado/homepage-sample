@@ -1,11 +1,16 @@
 <!-- HERO -->
 <section
   id="hero"
-  class="relative h-[640px] bg-cover bg-center"
+  class="relative h-[640px] bg-cover bg-center duration-500"
   style="background-image: url(&quot;./images/slider.jpg&quot;)"
 >
   <!-- left arrow -->
-  <button class="absolute left-8 top-1/2 -translate-y-1/2 text-5xl">‹</button>
+  <button
+    id="prevBtn"
+    class="absolute left-8 top-1/2 -translate-y-1/2 text-5xl z-10"
+  >
+    ‹
+  </button>
 
   <!-- content -->
   <div class="max-w-7xl mx-auto h-full px-24 flex items-center">
@@ -34,5 +39,10 @@
   </div>
 
   <!-- right arrow -->
-  <button class="absolute right-8 top-1/2 -translate-y-1/2 text-5xl">›</button>
+  <button
+    id="nextBtn"
+    class="absolute right-8 top-1/2 -translate-y-1/2 text-5xl z-10"
+  >
+    ›
+  </button>
 </section>
