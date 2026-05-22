@@ -34,6 +34,6 @@ Add your deployment link here.
 
 ## 👨‍💻 Author
 
-Your Name
+My Name
 
 GitHub: [https://github.com/keshmaSalgado](https://github.com/keshmaSalgado)
